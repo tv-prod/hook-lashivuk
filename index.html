@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ההוק לשיווק! | TV Production – תדעו סוף סוף לאן מפרסמים</title>
+    <meta name="description"
+        content="אם אתם משווקים בלי תוכנית ומוציאים כסף בלי לדעת מה עובד – ההדרכה הזו בשבילכם. 290 ₪ עם טל וגל מ-TV Production." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        .logo-img {
+            height: 32px;
+            width: auto;
+            display: block;
+        }
+
+        .logo-img--sm {
+            height: 24px;
+        }
+
+        /* ── Photo Gallery ─────────────────────────────── */
+        .photo-gallery {
+            position: relative;
+            overflow: hidden;
+            background: #0a0a0f;
+            width: 100%;
+        }
+
+        .gallery-track {
+            display: flex;
+            direction: ltr;
+            transition: transform 0.5s cubic-bezier(.4, 0, .2, 1);
+            will-change: transform;
+        }
+
+        .gallery-slide {
+            flex: 0 0 100%;
+            min-width: 0;
+        }
+
+        .gallery-slide-frame {
+            aspect-ratio: 3 / 4;
+            background: #050509;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .gallery-slide-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .gallery-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            z-index: 20;
+            background: rgba(0, 0, 0, .65);
+            border: 2px solid rgba(255, 255, 255, .28);
+            color: #fff;
+            font-size: 26px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .2s, border-color .2s, transform .15s;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .gallery-btn:hover {
+            background: rgba(0, 212, 255, .28);
+            border-color: rgba(0, 212, 255, .75);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .gallery-btn:active {
+            transform: translateY(-50%) scale(.94);
+        }
+
+        .gallery-btn--prev {
+            right: 12px;
+        }
+
+        .gallery-btn--next {
+            left: 12px;
+        }
+
+        /* ── Video Testimonials Carousel ─────────────────── */
+        .video-testi-section {
+            padding: 60px 0 40px;
+            background: linear-gradient(180deg, #0a0a14 0%, #06060f 100%);
+        }
+
+        .video-testi-heading {
+            text-align: center;
+            padding: 0 20px;
+            margin-bottom: 32px;
+        }
+
+        .video-testi-tag {
+            display: inline-block;
+            background: rgba(0, 212, 255, .12);
+            border: 1px solid rgba(0, 212, 255, .3);
+            color: #00d4ff;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .video-testi-title {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: 800;
+            color: #fff;
+            margin: 0 0 8px;
+            line-height: 1.3;
+        }
+
+        .video-testi-sub {
+            color: rgba(255, 255, 255, .55);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .video-carousel-wrap {
+            position: relative;
+            overflow: hidden;
+            max-width: 420px;
+            margin: 0 auto;
+            border-radius: 20px;
+        }
+
+        .video-carousel-track {
+            display: flex;
+            direction: ltr;
+            transition: transform 0.45s cubic-bezier(.4, 0, .2, 1);
+            will-change: transform;
+        }
+
+        .video-slide {
+            flex: 0 0 100%;
+            min-width: 0;
+            padding: 0 16px;
+            box-sizing: border-box;
+        }
+
+        .video-slide-inner {
+            background: linear-gradient(145deg, #151525, #0d0d1e);
+            border: 1px solid rgba(0, 212, 255, .18);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .04);
+        }
+
+        .video-iframe-wrap {
+            position: relative;
+            padding-bottom: 177.78%;
+            height: 0;
+            background: #070712;
+            overflow: hidden;
+        }
+
+        .video-iframe-wrap iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-slide-label {
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .video-slide-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0e3a6e, #1a6abf);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .video-slide-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.2;
+        }
+
+        .video-slide-role {
+            font-size: 12px;
+            color: rgba(255, 255, 255, .45);
+        }
+
+        .video-stars {
+            margin-right: auto;
+            font-size: 11px;
+            color: #ffc107;
+        }
+
+        .video-carousel-btn {
+            position: absolute;
+            top: 38%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(0, 212, 255, .18);
+            border: 1.5px solid rgba(0, 212, 255, .45);
+            color: #00d4ff;
+            font-size: 22px;
+            cursor: pointer;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .2s, transform .15s;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+
+        .video-carousel-btn:hover {
+            background: rgba(0, 212, 255, .32);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .video-carousel-btn:active {
+            transform: translateY(-50%) scale(.92);
+        }
+
+        .video-carousel-btn--prev {
+            right: 0px;
+        }
+
+        .video-carousel-btn--next {
+            left: 0px;
+        }
+
+        .video-dots {
+            display: flex;
+            justify-content: center;
+            gap: 7px;
+            margin-top: 20px;
+            padding-bottom: 8px;
+        }
+
+        .video-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .2);
+            transition: background .25s, transform .25s;
+            cursor: pointer;
+        }
+
+        .video-dot.active {
+            background: #00d4ff;
+            transform: scale(1.3);
+        }
+
+        /* ── Israel Hayom Press Section ───────────────────── */
+        .press-section {
+            padding: 64px 0 56px;
+            background: linear-gradient(180deg, #050510 0%, #080818 100%);
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .press-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, .4), transparent);
+        }
+
+        .press-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, .4), transparent);
+        }
+
+        .press-inner {
+            padding: 0 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .press-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 212, 255, .1);
+            border: 1px solid rgba(0, 212, 255, .25);
+            color: #00d4ff;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .press-headline {
+            font-size: clamp(2rem, 8vw, 2.8rem);
+            font-weight: 900;
+            color: #fff;
+            margin: 0 0 6px;
+            line-height: 1.15;
+        }
+
+        .press-headline span {
+            background: linear-gradient(90deg, #00d4ff, #0099cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .press-subhead {
+            font-size: 16px;
+            color: rgba(255, 255, 255, .6);
+            margin: 0 0 28px;
+            font-weight: 400;
+        }
+
+        .press-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #0e3a6e, #1a6abf);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 14px 30px;
+            border-radius: 100px;
+            text-decoration: none;
+            box-shadow: 0 4px 24px rgba(0, 150, 255, .35);
+            transition: transform .2s, box-shadow .2s;
+            margin-bottom: 40px;
+        }
+
+        .press-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(0, 150, 255, .55);
+        }
+
+        .press-cta:active {
+            transform: scale(.97);
+        }
+
+        .press-images {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            position: relative;
+            min-height: 260px;
+            margin: 0 -10px;
+        }
+
+        .press-img-wrap {
+            position: relative;
+            width: 58%;
+            max-width: 220px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .6);
+            border: 2px solid rgba(255, 255, 255, .12);
+            transition: transform .3s ease;
+        }
+
+        .press-img-wrap:first-child {
+            transform: rotate(-6deg) translateX(20px);
+            z-index: 1;
+        }
+
+        .press-img-wrap:last-child {
+            transform: rotate(6deg) translateX(-20px);
+            z-index: 1;
+        }
+
+        .press-img-wrap:hover {
+            transform: rotate(0deg) scale(1.04) !important;
+            z-index: 5;
+        }
+
+        .press-img-wrap img {
+            width: 100%;
+            display: block;
+        }
+
+        .press-logo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, .07);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 8px;
+            padding: 8px 16px;
+            margin-top: 32px;
+            color: rgba(255, 255, 255, .7);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* ── Client Logos Grid ─────────────────────────────── */
+        .logos-section {
+            padding: 56px 40px;
+            background: linear-gradient(180deg, #07070f 0%, #0d0d1a 100%);
+            position: relative;
+        }
+
+        .logos-label {
+            text-align: center;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, .25);
+            margin-bottom: 36px;
+        }
+
+        .logos-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 32px 48px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .logo-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.45;
+            transition: opacity .3s ease;
+        }
+
+        .logo-item:hover {
+            opacity: 0.85;
+        }
+
+        .logo-item img {
+            height: 38px;
+            width: auto;
+            max-width: 130px;
+            object-fit: contain;
+            display: block;
+            filter: brightness(0) invert(1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════════════════════ QUIZ -->
+    <div id="quiz-phase" class="quiz-phase">
+        <div class="quiz-header">
+            <div class="quiz-logo">
+                <img src="logo.png" alt="TV Production" class="logo-img logo-img--sm" />
+            </div>
+            <div class="quiz-progress-wrap">
+                <div class="quiz-progress-bar" id="quizProgressBar"></div>
+            </div>
+            <div class="quiz-step-label" id="quizStepLabel">שאלה 1 מתוך 5</div>
+        </div>
+
+        <div class="quiz-body">
+            <div class="quiz-question active" id="q1">
+                <div class="q-num">01</div>
+                <h2 class="q-title">תכלס – מה מצב השיווק שלך היום?</h2>
+                <div class="quiz-options">
+                    <button class="quiz-option" onclick="selectOption(this,1)"><span
+                            class="opt-emoji">🔥</span><span>שיווק? אני
+                            בעיקר על פה לאוזן. לא עשיתי בזה כלום</span></button>
+                    <button class="quiz-option" onclick="selectOption(this,1)"><span
+                            class="opt-emoji">😤</span><span>מנסה דברים
+                            אבל לא יודע מה מהם באמת עובד</span></button>
+                    <button class="quiz-option" onclick="selectOption(this,1)"><span class="opt-emoji">📉</span><span>יש
+                            לי נוכחות
+                            – אבל היא לא מביאה לקוחות</span></button>
+                    <button class="quiz-option" onclick="selectOption(this,1)"><span class="opt-emoji">⚡</span><span>יש
+                            שיווק –
+                            אבל אני יודע שאפשר הרבה יותר טוב</span></button>
+                </div>
+            </div>
+            <div class="quiz-question" id="q2">
+                <div class="q-num">02</div>
+                <h2 class="q-title">מה הכי גורם לך כאב ראש כשמדובר בלהביא לקוחות חדשים?</h2>
+                <div class="quiz-options">
+                    <button class="quiz-option" onclick="selectOption(this,2)"><span
+                            class="opt-emoji">💸</span><span>מוציא כסף על
+                            פרסום ולא רואה תוצאות – כסף לפח</span></button>
+                    <button class="quiz-option" onclick="selectOption(this,2)"><span class="opt-emoji">🤯</span><span>לא
+                            יודע
+                            מאיפה להתחיל – פייסבוק? אינסטה? טיקטוק?</span></button>
+                    <button class="quiz-option" onclick="selectOption(this,2)"><span class="opt-emoji">⏰</span><span>אין
+                            לי זמן –
+                            אני שקוע בלנהל את העסק, לא לשווק אותו</span></button>
+                    <button class="quiz-option" onclick="selectOption(this,2)"><span
+                            class="opt-emoji">👀</span><span>המתחרים שלי
+                            עוקפים אותי ואני לא מצליח להבין איך</span></button>
+                </div>
+            </div>
+            <div class="quiz-question" id="q3">
+                <div class="q-num">03</div>
+                <h2 class="q-title">בואו נדבר תכלס - יש לך תוכנית שיווק לשנה? כתובה? ברורה?</h2>
+                <div class="quiz-options">
+                    <button class="quiz-option" onclick="selectOption(this,3)"><span
+                            class="opt-emoji">❌</span><span>בכלל לא.
+                            משווק לגמרי לפי הרגשה</span></button>
+                    <button class="quiz-option" onclick="selectOption(this,3)"><span class="opt-emoji">📝</span><span>יש
+                            משהו בראש
+                            אבל לא כתוב בשום מקום</span></button>
+                    <button class="quiz-option" onclick="selectOption(this,3)"><span
+                            class="opt-emoji">🗓️</span><span>יש משהו
+                            בסיסי אבל הוא לא באמת עובד</span></button>
+                    <button class="quiz-option" onclick="selectOption(this,3)"><span class="opt-emoji">✅</span><span>יש
+                            תוכנית –
+                            אבל צריך לחדד ולשפר אותה</span></button>
+                </div>
+            </div>
+            <div class="quiz-question" id="q4">
+                <div class="q-num">04</div>
+                <h2 class="q-title">אם העסק שלך נשאר באותו המצב בחצי שנה הקרובה - מה יהיו ההשלכות?</h2>
+                <div class="quiz-options">
+                    <button class="quiz-option" onclick="selectOption(this,4)"><span
+                            class="opt-emoji">😰</span><span>ייתכן שהעסק
+                            לא ישרוד. צריך לשנות כיוון עכשיו</span></button>
+                    <button class="quiz-option" onclick="selectOption(this,4)"><span
+                            class="opt-emoji">📉</span><span>נעמוד במקום
+                            בזמן שכולם מסביב מתקדמים</span></button>
+                    <button class="quiz-option" onclick="selectOption(this,4)"><span
+                            class="opt-emoji">😤</span><span>אמשיך
+                            להרוויח אבל זה יתסכל אותי כל יום מחדש</span></button>
+                    <button class="quiz-option" onclick="selectOption(this,4)"><span class="opt-emoji">🤷</span><span>לא
+                            בטוח, אבל
+                            אני יודע שצריך לעשות משהו</span></button>
+                </div>
+            </div>
+            <div class="quiz-question" id="q5">
+                <div class="q-num">05</div>
+                <h2 class="q-title">אם היה לך עכשיו מישהו שפשוט יסביר לך באיזה דרכים לשווק את העסק ואיך לבנות ולעבוד לפי
+                    תוכנית
+                    שיווק שעובדת - היית לוקח?</h2>
+                <div class="quiz-options">
+                    <button class="quiz-option quiz-option--yes" onclick="selectOption(this,5)"><span
+                            class="opt-emoji">🙌</span><span>בשתי ידיים ורגלי. בוא נעשה את זה עכשיו</span></button>
+                    <button class="quiz-option" onclick="selectOption(this,5)"><span
+                            class="opt-emoji">🤔</span><span>אולי כן –
+                            תלוי מה בדיוק זה כולל</span></button>
+                    <button class="quiz-option" onclick="selectOption(this,5)"><span
+                            class="opt-emoji">💬</span><span>רוצה להבין
+                            יותר לפני שאני מחליט</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ LOADING -->
+    <div id="loading-screen" class="loading-screen hidden">
+        <div class="loading-content">
+            <div class="quiz-logo loading-logo-spacing">
+                <img src="logo.png" alt="TV Production" class="logo-img" />
+            </div>
+            <div class="spinner-wrap">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring spinner-ring--2"></div>
+            </div>
+            <p class="loading-text">מנתחים את התשובות שלך...</p>
+            <p class="loading-sub">מכינים את התוצאות האישיות שלך</p>
+            <div class="loading-track">
+                <div class="loading-fill" id="loadingFill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ VSL PAGE -->
+    <div id="vsl-phase" class="vsl-phase hidden">
+
+        <nav class="vsl-nav">
+            <img src="logo.png" alt="TV Production" class="logo-img" />
+        </nav>
+
+        <div class="urgency-bar" id="urgencyBar">
+            <div class="urgency-inner">
+                <!-- Timer row – prominent, outside pill -->
+                <div class="urgency-timer-row">
+                    <span class="urgency-fire">🔥</span>
+                    <span class="urgency-text">מחיר השקה – מסתיים בעוד:</span>
+                    <div class="countdown" id="countdown">
+                        <div class="cd-block"><span class="cd-num" id="cdH">23</span><span class="cd-label">שע'</span>
+                        </div>
+                        <div class="cd-sep">:</div>
+                        <div class="cd-block"><span class="cd-num" id="cdM">59</span><span class="cd-label">דק'</span>
+                        </div>
+                        <div class="cd-sep">:</div>
+                        <div class="cd-block"><span class="cd-num" id="cdS">00</span><span class="cd-label">שנ'</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Coupon pill – thin rectangle below -->
+                <div class="coupon-pill">
+                    <span class="coupon-label">קוד להנחה 20%:</span>
+                    <span class="coupon-code" id="copyCoupon" onclick="copyCoupon()" title="לחץ להעתיק">HOOK20</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sticky-cta" id="stickyCta">
+            <div class="sticky-inner">
+                <div class="sticky-info">
+                    <span class="sticky-name">להדרכה המדוייקת שלכם</span>
+                    <span class="sticky-headline">ההוק לשיווק!</span>
+                </div>
+                <span class="sticky-price-tag">290 ₪</span>
+                <a href="#buy-section" class="cta-btn cta-btn--sm">לרכישה מיידית ←</a>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════ HERO -->
+        <section class="hero-section" id="hero-section">
+            <div class="hero-parallax-bg" id="heroBg"></div>
+            <div class="hero-parallax-dots" id="heroDots"></div>
+
+            <div class="hero-inner">
+                <div class="hero-badge" data-scroll-reveal="fade-up" data-delay="0">🎯 הדרכה דיגיטלית | ההוק לשיווק!
+                </div>
+
+                <h1 class="hero-title" data-scroll-reveal="fade-up" data-delay="100">
+                    כל יום אתם מפרסמים, מנסים,<br />
+                    מוציאים כסף<br />
+                    <span class="hero-accent">ועדיין לא יודעים<br />מה באמת&nbsp;עובד.</span>
+                </h1>
+
+                <p class="hero-prelude" data-scroll-reveal="fade-up" data-delay="180">
+                    אנחנו יודעים בדיוק איך זה מרגיש.<br />
+                    כי ראינו את זה אצל <strong>מאות עסקים</strong> שעבדנו איתם.
+                </p>
+
+                <!-- VIDEO — VSL (src נטען רק כשהעמוד נפתח לאחר הקוויז) -->
+                <div class="vsl-video-wrap" data-scroll-reveal="scale-up" data-delay="260">
+                    <div class="vsl-video-inner">
+                        <div class="vsl-glow" style="z-index:-1;"></div>
+                        <iframe
+                            id="vsl-hero-iframe"
+                            data-src="https://player.vimeo.com/video/1184535257?autoplay=1&autopause=0&badge=0&player_id=vsl-hero-iframe&app_id=58479"
+                            allow="autoplay; fullscreen; picture-in-picture"
+                            allowfullscreen
+                            title="ההוק לשיווק – הדרכה"
+                            style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.25);width:100%;height:100%;border:none;border-radius:inherit;"
+                        ></iframe>
+                    </div>
+                </div>
+
+                <div class="hero-cta-area" id="hero-cta" data-scroll-reveal="fade-up" data-delay="360">
+                    <a href="#buy-section" class="cta-btn cta-btn--hero cta-pulse">
+                        🔥 סיקרנת אותי!
+                    </a>
+                </div>
+
+                <div class="hero-stats" data-scroll-reveal="fade-up" data-delay="440">
+                    <div class="hstat"><span class="hstat-num counter" data-target="150">0</span><span
+                            class="hstat-num-plus">+</span><span class="hstat-sub">עסקים</span></div>
+                    <div class="hstat-div"></div>
+                    <div class="hstat"><span class="hstat-num counter" data-target="7">0</span><span
+                            class="hstat-num-plus">+</span><span class="hstat-sub">שנות ניסיון</span></div>
+                    <div class="hstat-div"></div>
+                    <div class="hstat"><span class="hstat-num">⭐ 4.9</span><span class="hstat-sub">דירוג ממוצע</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        </section>
+
+        <!-- ══════════════════════════════════════════════ CLIENT LOGOS -->
+        <section class="logos-section" id="logos-section">
+            <div class="logos-label">עבדנו עם מאות עסקים, אלו חלקם</div>
+            <div class="logos-grid">
+                <div class="logo-item"><img src="logo-client-01.png" alt=""
+                        onerror="this.parentElement.style.display='none'" /></div>
+                <div class="logo-item"><img src="logo-client-02.png" alt=""
+                        onerror="this.parentElement.style.display='none'" /></div>
+                <div class="logo-item"><img src="logo-client-03.png" alt=""
+                        onerror="this.parentElement.style.display='none'" /></div>
+                <div class="logo-item"><img src="logo-client-04.png" alt=""
+                        onerror="this.parentElement.style.display='none'" /></div>
+                <div class="logo-item"><img src="logo-client-05.png" alt=""
+                        onerror="this.parentElement.style.display='none'" /></div>
+                <div class="logo-item"><img src="logo-client-06.png" alt=""
+                        onerror="this.parentElement.style.display='none'" /></div>
+                <div class="logo-item"><img src="logo-client-07.png" alt=""
+                        onerror="this.parentElement.style.display='none'" /></div>
+                <div class="logo-item"><img src="logo-client-08.png" alt=""
+                        onerror="this.parentElement.style.display='none'" /></div>
+                <div class="logo-item"><img src="logo-client-09.png" alt=""
+                        onerror="this.parentElement.style.display='none'" /></div>
+                <div class="logo-item"><img src="logo-client-10.png" alt=""
+                        onerror="this.parentElement.style.display='none'" /></div>
+                <div class="logo-item"><img src="logo-client-11.png" alt=""
+                        onerror="this.parentElement.style.display='none'" /></div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════ PAIN — reading loop -->
+        <section class="pain-section pain-section--loop">
+            <div class="pain-statements-wrap">
+
+                <div class="pain-stmt pain-stmt--q" data-scroll-reveal="fade-up" data-delay="0">
+                    תחשבו על החודש האחרון.
+                </div>
+
+                <div class="pain-stmt pain-stmt--q" data-scroll-reveal="fade-up" data-delay="0">
+                    כמה שעות בזבזתם על פוסטים<br />שאף אחד לא ראה?
+                </div>
+
+                <div class="pain-stmt pain-stmt--q" data-scroll-reveal="fade-up" data-delay="0">
+                    כמה <span class="cyan">כסף</span> הוצאתם על בוסטים<br />ובסופו של יום לא סגרתם אף לקוח חדש?
+                </div>
+
+                <div class="pain-divider"></div>
+
+                <div class="pain-stmt" data-scroll-reveal="fade-up" data-delay="0">
+                    מתייעצים עם אנשים שאמורים לדעת.<br />
+                    אחד אומר להשקיע ב<span class="cyan">פייסבוק.</span><br />
+                    השני אומר לעלות סטורי ב<span class="cyan">אינסטגרם.</span><br />
+                    השלישי אומר שחייבים להיות ב<span class="cyan">טיקטוק.</span>
+                </div>
+
+                <div class="pain-stmt" data-scroll-reveal="fade-up" data-delay="0">
+                    מנסים הכל ושום דבר לא תופס.<br />
+                    ואתם לא יודעים להחליט<br />
+                    באיזה דרכי שיווק להשקיע<br />
+                    את <span class="cyan">הכסף&nbsp;והזמן&nbsp;שלכם.</span>
+                </div>
+
+                <div class="pain-stmt" data-scroll-reveal="fade-up" data-delay="0">
+                    המטרה היא להביא לקוחות<br />ולהפוך אותם ל<span class="cyan">רוכשים.</span>
+                </div>
+
+                <div class="pain-divider"></div>
+
+                <div class="pain-stmt pain-stmt--verdict" data-scroll-reveal="fade-up" data-delay="0">
+                    זה לא כי אתם לא עובדים קשה.
+                </div>
+
+                <div class="pain-stmt pain-stmt--verdict-cyan" data-scroll-reveal="fade-up" data-delay="80">
+                    זה כי אף אחד עוד לא הסביר לכם את הבסיס.
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════ SOLUTION -->
+        <section class="solution-section">
+            <div class="section-inner solution-centered">
+                <h2 class="section-title sol-title-big" data-scroll-reveal="fade-up" data-delay="0">ובדיוק בשביל זה
+                    יצרנו
+                    את<br /><span class="cyan">הדרכת ההוק לשיווק!</span></h2>
+
+                <div class="solution-narrative sol-narrative-lg" data-scroll-reveal="fade-up" data-delay="80">
+                    <p>לא עוד קורס של 40 שעות שתסיימו אחרי שלושה חודשים.<br />
+                        לא עוד יועץ שיווק שמסביר תיאוריה שלא מתחברת לשום דבר אמיתי.</p>
+                    <p class="sol-hook-line">הדרכה 1. קצרה וממוקדת.<br />שמסבירה לכם בדיוק:</p>
+                </div>
+
+                <div class="sol-feature-list" data-scroll-reveal="fade-up" data-delay="140">
+                    <div class="sol-feat">
+                        <span class="sol-feat-num">01</span>
+                        <span class="sol-feat-text">רשימה מסודרת של כל <span class="cyan">דרכי השיווק</span> מה כל אחד
+                            שווה ומה הכי
+                            מתאים עבורך!</span>
+                    </div>
+                    <div class="sol-feat">
+                        <span class="sol-feat-num">02</span>
+                        <span class="sol-feat-text">תדעו בדיוק איזה <span class="cyan">דרכי שיווק</span> מתאימים לעסק
+                            שלכם!</span>
+                    </div>
+                    <div class="sol-feat">
+                        <span class="sol-feat-num">03</span>
+                        <span class="sol-feat-text">איך בונים <span class="cyan">תוכנית שיווק שנתית</span> שאפשר ליישם
+                            מחר בבוקר —
+                            בלי ייעוץ יקר</span>
+                    </div>
+                    <div class="sol-feat">
+                        <span class="sol-feat-num">04</span>
+                        <span class="sol-feat-text">מה זה שיווק <span class="cyan">באמת</span> — ההסבר שאף אחד לא נתן
+                            לכם עד
+                            היום</span>
+                    </div>
+
+                </div>
+
+                <div class="solution-promise promise-big" data-scroll-reveal="fade-up" data-delay="200">
+                    <p class="promise-lead">אחרי ההדרכה הזו תצאו עם תמונה ברורה לגמרי.</p>
+                    <p class="promise-main">תדעו בדיוק מה לעשות<br />מחר בבוקר.</p>
+                    <p class="promise-sub">לא "אולי". לא "נראה לי".</p>
+                    <p class="promise-verdict"><span class="promise-glow">בוודאות.</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════ WHAT AWAITS -->
+        <section class="awaits-section">
+            <div class="section-inner">
+                <div class="sec-tag" data-scroll-reveal="fade-up">📚 מה בפנים</div>
+                <h2 class="section-title" data-scroll-reveal="fade-up" data-delay="80">בלי הפתעות. בלי שטויות. הנה בדיוק
+                    מה
+                    שתלמדו:</h2>
+
+                <div class="awaits-grid">
+                    <div class="await-card" data-scroll-reveal="fade-up" data-delay="0">
+                        <div class="await-icon">🧠</div>
+                        <div>
+                            <h3>מה זה שיווק – ההגדרה שתשנה לכם את כל האסטרטגיה</h3>
+                            <p>לא הגדרה מוויקיפדיה. ההגדרה שמסבירה למה כל מה שניסיתם לא עבד – ומה לעשות בדיוק אחרת.</p>
+                        </div>
+                    </div>
+                    <div class="await-card" data-scroll-reveal="fade-up" data-delay="70">
+                        <div class="await-icon">📡</div>
+                        <div>
+                            <h3>רשימה מפורטת של כל דרכי השיווק עבור בעלי עסקים!</h3>
+                            <p>מאינסטגרם ועד שלטי חוצות, מגוגל ועד פרופיל עסקי. תדעו מה כל אחד שווה ומה הכי מתאים בדיוק
+                                לעסק שלכם.</p>
+                        </div>
+                    </div>
+                    <div class="await-card" data-scroll-reveal="fade-up" data-delay="140">
+                        <div class="await-icon">🎯</div>
+                        <div>
+                            <h3>תרגיל הדירוג – ותצאו עם הרשימה שלכם</h3>
+                            <p>תרגיל מעשי שבסופו תדעו בדיוק אילו 3–4 ערוצים כדאי לכם לפתח. לא מה שטוב לכולם – מה שטוב
+                                לכם.</p>
+                        </div>
+                    </div>
+                    <div class="await-card" data-scroll-reveal="fade-up" data-delay="210">
+                        <div class="await-icon">🗓️</div>
+                        <div>
+                            <h3>איך בונים תוכנית שיווק שנתית שמחזיקה מעמד</h3>
+                            <p>קהל יעד, יעדים, ערוצים נבחרים, תקציב, ופירוק לתוכנית עבודה חודשית שאפשר ליישם מחר.</p>
+                        </div>
+                    </div>
+                    <div class="await-card" data-scroll-reveal="fade-up" data-delay="280">
+                        <div class="await-icon">⚡</div>
+                        <div>
+                            <h3>סדר עדיפויות – מה קודם, מה אחר כך, ומה לזרוק</h3>
+                            <p>איפה להתחיל? מה מביא תוצאות הכי מהר? איך לחלק את הזמן כך שהשיווק קורה בלי לשרוף את עצמכם.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="await-card" data-scroll-reveal="fade-up" data-delay="350">
+                        <div class="await-icon">🎁</div>
+                        <div>
+                            <h3>+ טמפלייט תוכנית שיווק שנתית (בחינם)</h3>
+                            <p>מסמך מוכן שתמלאו ישר בהדרכה. תצאו עם תוכנית שיווק שנתית מוכנה לפעולה – ביום שתסיימו.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════ TESTIMONIALS -->
+        <section class="testimonials-section">
+            <div class="section-inner">
+                <div class="sec-tag" data-scroll-reveal="fade-up">💬 הם כבר עברו את זה</div>
+                <h2 class="section-title" data-scroll-reveal="fade-up" data-delay="80">אל תאמינו לנו – תאמינו להם</h2>
+                <p class="sec-subtitle" data-scroll-reveal="fade-up" data-delay="120">אלה לא פרסומות. אלה הודעות שקיבלנו
+                    אחרי
+                    ההדרכה.</p>
+
+                <div class="wa-testimonials" data-scroll-reveal="fade-up" data-delay="160">
+                    <div class="wa-bubble wa-bubble--received">
+                        <p>אחי טל, לא הבנתי למה השיווק שלי לא עבד עד שראיתי את ההדרכה. 20 דקות והכל נפל לי במקום. בניתי
+                            תוכנית שלמה
+                            לשנה ביום אחד 🙏</p>
+                        <span class="wa-name">מיטל כ., בעלת בוטיק אונליין – תל אביב</span>
+                    </div>
+                    <div class="wa-bubble wa-bubble--sent">
+                        <p>הייתי בטוח שאני יודע שיווק. ישבתי עם ההדרכה, ואחרי שעה וחצי הבנתי שטעיתי ב-3 דברים בסיסיים
+                            שעלו לי הרבה
+                            כסף לאורך שנה שלמה. תודה שסוף סוף מישהו אמר את האמת</p>
+                        <span class="wa-name">אורן מ., יועץ עסקי – ירושלים</span>
+                    </div>
+                    <div class="wa-bubble wa-bubble--received">
+                        <p>חשבתי שזה עוד הדרכה שיווקית כללית שלא מתאימה לי. הופתעתי – הם ממש עזרו לי להחליט איזה ערוץ
+                            מתאים לי ולא
+                            לכולם. הרגשתי שמדברים איתי ספציפית 💪</p>
+                        <span class="wa-name">יעל נ., קוסמטיקאית – חיפה</span>
+                    </div>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testi-card" data-scroll-reveal="fade-up" data-delay="0">
+                        <div class="testi-top">
+                            <div class="testi-avatar" style="background:linear-gradient(135deg,#1a3a6b,#2d6abf)">מ</div>
+                            <div class="testi-info">
+                                <div class="testi-name">מיטל כהן</div>
+                                <div class="testi-meta">בוטיק אונליין | תל אביב</div>
+                                <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p class="testi-quote">"סוף סוף הבנתי למה כל מה שניסיתי לא עבד. העדיפויות שלי היו הפוכות לגמרי –
+                            ולא ידעתי
+                            את זה. ההדרכה שינתה לי את כל הגישה בבת אחת."</p>
+                    </div>
+                    <div class="testi-card" data-scroll-reveal="fade-up" data-delay="70">
+                        <div class="testi-top">
+                            <div class="testi-avatar" style="background:linear-gradient(135deg,#4a1a6b,#8b2dbf)">א</div>
+                            <div class="testi-info">
+                                <div class="testi-name">אורן מזרחי</div>
+                                <div class="testi-meta">יועץ עסקי | ירושלים</div>
+                                <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p class="testi-quote">"השתמשתי בטמפלייט ישר אחרי שסיימתי. תוך שבוע הייתה לי תוכנית שיווק שלמה.
+                            מה שלא
+                            הצלחתי לעשות ב-6 חודשים – עשיתי בשלושה ימים."</p>
+                    </div>
+                    <div class="testi-card" data-scroll-reveal="fade-up" data-delay="140">
+                        <div class="testi-top">
+                            <div class="testi-avatar" style="background:linear-gradient(135deg,#1a4a2b,#2dbf5a)">י</div>
+                            <div class="testi-info">
+                                <div class="testi-name">יעל נחמני</div>
+                                <div class="testi-meta">קוסמטיקאית | חיפה</div>
+                                <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p class="testi-quote">"הדבר שהכי עשה לי אימפקט זה שהם לא ניסו למכור לי עוד שירות אחרי. פשוט
+                            נתנו מה
+                            שהבטיחו. בצורה ישירה, ברורה, בלי מסביב."</p>
+                    </div>
+                    <div class="testi-card" data-scroll-reveal="fade-up" data-delay="210">
+                        <div class="testi-top">
+                            <div class="testi-avatar" style="background:linear-gradient(135deg,#4a2b1a,#bf702d)">ד</div>
+                            <div class="testi-info">
+                                <div class="testi-name">דוד אלון</div>
+                                <div class="testi-meta">קבלן שיפוצים | רמת גן</div>
+                                <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <p class="testi-quote">"מי היה מאמין שקבלן שיפוצים ירכוש הדרכת שיווק. 290 ₪ שינו לי את הדרך שבה
+                            אני מביא
+                            לקוחות. החזר השקעה בתוך שבועיים."</p>
+                    </div>
+                </div>
+
+                <!-- ── Video Testimonials ── -->
+                <div class="video-testi-heading" data-scroll-reveal="fade-up" data-delay="0" style="margin-top:48px">
+                    <div class="video-testi-tag">🎥 הלקוחות מספרים בעצמם</div>
+                    <h3 class="video-testi-title">החליטו לפרגן!</h3>
+                    <p class="video-testi-sub">בעלי עסקים שצמחו, תראו את זה בעצמכם.</p>
+                </div>
+
+                <div style="position:relative; max-width:460px; margin:0 auto; padding:0 0 8px;"
+                    data-scroll-reveal="fade-up" data-delay="80">
+                    <button class="video-carousel-btn video-carousel-btn--prev" id="vcPrev"
+                        aria-label="הקודם">&#8250;</button>
+                    <button class="video-carousel-btn video-carousel-btn--next" id="vcNext"
+                        aria-label="הבא">&#8249;</button>
+
+                    <div class="video-carousel-wrap">
+                        <div class="video-carousel-track" id="vcTrack">
+
+                            <!-- Video 1 -->
+                            <div class="video-slide">
+                                <div class="video-slide-inner">
+                                    <div class="video-iframe-wrap">
+                                        <iframe id="vimeo-0"
+                                            src="https://player.vimeo.com/video/1002408084?badge=0&autopause=0&player_id=vimeo-0&app_id=58479"
+                                            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                                            title="המלצה 1"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video 2 -->
+                            <div class="video-slide">
+                                <div class="video-slide-inner">
+                                    <div class="video-iframe-wrap">
+                                        <iframe id="vimeo-1"
+                                            src="https://player.vimeo.com/video/1002407839?badge=0&autopause=0&player_id=vimeo-1&app_id=58479"
+                                            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                                            title="המלצה 2"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video 3 -->
+                            <div class="video-slide">
+                                <div class="video-slide-inner">
+                                    <div class="video-iframe-wrap">
+                                        <iframe id="vimeo-2"
+                                            src="https://player.vimeo.com/video/1002408420?badge=0&autopause=0&player_id=vimeo-2&app_id=58479"
+                                            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                                            title="המלצה 3"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video 4 -->
+                            <div class="video-slide">
+                                <div class="video-slide-inner">
+                                    <div class="video-iframe-wrap">
+                                        <iframe id="vimeo-3"
+                                            src="https://player.vimeo.com/video/1002409056?badge=0&autopause=0&player_id=vimeo-3&app_id=58479"
+                                            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                                            title="המלצה 4"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video 5 -->
+                            <div class="video-slide">
+                                <div class="video-slide-inner">
+                                    <div class="video-iframe-wrap">
+                                        <iframe id="vimeo-4"
+                                            src="https://player.vimeo.com/video/1002408798?badge=0&autopause=0&player_id=vimeo-4&app_id=58479"
+                                            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                                            title="המלצה 5"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video 6 -->
+                            <div class="video-slide">
+                                <div class="video-slide-inner">
+                                    <div class="video-iframe-wrap">
+                                        <iframe id="vimeo-5"
+                                            src="https://player.vimeo.com/video/1002409347?badge=0&autopause=0&player_id=vimeo-5&app_id=58479"
+                                            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                                            title="המלצה 6"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Video 7 -->
+                            <div class="video-slide">
+                                <div class="video-slide-inner">
+                                    <div class="video-iframe-wrap">
+                                        <iframe id="vimeo-6"
+                                            src="https://player.vimeo.com/video/1182638467?badge=0&autopause=0&player_id=vimeo-6&app_id=58479"
+                                            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                                            title="המלצה 7"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video 8 -->
+                            <div class="video-slide">
+                                <div class="video-slide-inner">
+                                    <div class="video-iframe-wrap">
+                                        <iframe id="vimeo-7"
+                                            src="https://player.vimeo.com/video/1182638535?badge=0&autopause=0&player_id=vimeo-7&app_id=58479"
+                                            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                                            title="המלצה 8"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video 9 -->
+                            <div class="video-slide">
+                                <div class="video-slide-inner">
+                                    <div class="video-iframe-wrap">
+                                        <iframe id="vimeo-8"
+                                            src="https://player.vimeo.com/video/1182638631?badge=0&autopause=0&player_id=vimeo-8&app_id=58479"
+                                            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                                            title="המלצה 9"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video 10 -->
+                            <div class="video-slide">
+                                <div class="video-slide-inner">
+                                    <div class="video-iframe-wrap">
+                                        <iframe id="vimeo-9"
+                                            src="https://player.vimeo.com/video/1182638715?badge=0&autopause=0&player_id=vimeo-9&app_id=58479"
+                                            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                                            title="המלצה 10"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video 11 -->
+                            <div class="video-slide">
+                                <div class="video-slide-inner">
+                                    <div class="video-iframe-wrap">
+                                        <iframe id="vimeo-10"
+                                            src="https://player.vimeo.com/video/1182638803?badge=0&autopause=0&player_id=vimeo-10&app_id=58479"
+                                            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                                            title="המלצה 11"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video 12 -->
+                            <div class="video-slide">
+                                <div class="video-slide-inner">
+                                    <div class="video-iframe-wrap">
+                                        <iframe id="vimeo-11"
+                                            src="https://player.vimeo.com/video/1182638874?badge=0&autopause=0&player_id=vimeo-11&app_id=58479"
+                                            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                                            title="המלצה 12"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video 13 -->
+                            <div class="video-slide">
+                                <div class="video-slide-inner">
+                                    <div class="video-iframe-wrap">
+                                        <iframe id="vimeo-12"
+                                            src="https://player.vimeo.com/video/1182638940?badge=0&autopause=0&player_id=vimeo-12&app_id=58479"
+                                            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                                            title="המלצה 13"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Video 14 -->
+                            <div class="video-slide">
+                                <div class="video-slide-inner">
+                                    <div class="video-iframe-wrap">
+                                        <iframe id="vimeo-13"
+                                            src="https://player.vimeo.com/video/1182639024?badge=0&autopause=0&player_id=vimeo-13&app_id=58479"
+                                            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen
+                                            title="המלצה 14"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div><!-- /vcTrack -->
+                    </div><!-- /video-carousel-wrap -->
+
+                    <div class="video-dots" id="vcDots">
+                        <div class="video-dot active" data-idx="0"></div>
+                        <div class="video-dot" data-idx="1"></div>
+                        <div class="video-dot" data-idx="2"></div>
+                        <div class="video-dot" data-idx="3"></div>
+                        <div class="video-dot" data-idx="4"></div>
+                        <div class="video-dot" data-idx="5"></div>
+                        <div class="video-dot" data-idx="6"></div>
+                        <div class="video-dot" data-idx="7"></div>
+                        <div class="video-dot" data-idx="8"></div>
+                        <div class="video-dot" data-idx="9"></div>
+                        <div class="video-dot" data-idx="10"></div>
+                        <div class="video-dot" data-idx="11"></div>
+                        <div class="video-dot" data-idx="12"></div>
+                        <div class="video-dot" data-idx="13"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════ WHO WE ARE -->
+        <section class="about-section">
+            <div class="section-inner">
+                <div class="sec-tag" data-scroll-reveal="fade-up">👋 מי אנחנו</div>
+                <h2 class="section-title" data-scroll-reveal="fade-up" data-delay="80">טל וגל<br /><span
+                        class="hero-accent" style="font-size:.65em">TV Production – וידאו שמביא תוצאות</span></h2>
+            </div>
+
+            <div class="founders-cinema">
+                <div class="cinema-card cinema-card--gal" data-scroll-reveal="fade-left">
+                    <img src="gal.jpg" alt="גל – TV Production" class="cinema-img"
+                        onerror="this.style.display='none';this.parentElement.classList.add('cinema-no-img')" />
+                    <div class="cinema-overlay">
+                        <div class="cinema-name">גל</div>
+                        <div class="cinema-role">הפקה & ביצוע</div>
+                    </div>
+                </div>
+                <div class="cinema-card cinema-card--tal" data-scroll-reveal="fade-right">
+                    <img src="tal.jpg" alt="טל – TV Production" class="cinema-img"
+                        onerror="this.style.display='none';this.parentElement.classList.add('cinema-no-img')" />
+                    <div class="cinema-overlay">
+                        <div class="cinema-name">טל</div>
+                        <div class="cinema-role">אסטרטגיה & תוכן</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-inner">
+                <div class="about-text" data-scroll-reveal="fade-up" data-delay="80">
+                    <div class="about-narrative">
+                        <p>הקמנו את <strong>TV Production</strong> מתוך אמונה אחת פשוטה:<br /><strong>וידאו הוא כלי
+                                שיכול לקדם אותך
+                                עסקית!</strong></p>
+                        <p>שנים עבדנו עם עסקים מכל הסוגים.<br />ראינו קמפיינים שעלו עשרות אלפי שקלים ולא הביאו שום
+                            דבר.<br />ראינו
+                            עסקים קטנים שצמחו פי 3 בשנה עם 0 תקציב פרסום<br />רק עם בחירה חכמה באיזה דרכי שיווק לשווק
+                            השנה.</p>
+                        <p><strong>ההבדל הוא לא בתקציב. הוא לא בתוכן.</strong><br />ההבדל הוא שיש להם תוכנית שיווק
+                            מדוייקת.</p>
+                        <p>בהדרכה הזו תקבלו את הידע שצברנו מהשטח<br />דחוס לפורמט קצר, ישיר ומיידי<br />שכל בעל עסק יכול
+                            לקחת
+                            וליישם!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════ PHOTO GALLERY -->
+        <div class="photo-gallery" id="photoGallery">
+            <button class="gallery-btn gallery-btn--prev" id="galleryPrev" aria-label="הקודם">&#8250;</button>
+            <button class="gallery-btn gallery-btn--next" id="galleryNext" aria-label="הבא">&#8249;</button>
+            <div class="gallery-track" id="galleryTrack">
+                <div class="gallery-slide">
+                    <div class="gallery-slide-frame"><img src="action1.jpg" alt="בשטח" /></div>
+                </div>
+                <div class="gallery-slide">
+                    <div class="gallery-slide-frame"><img src="action2.jpg" alt="ציוד" /></div>
+                </div>
+                <div class="gallery-slide">
+                    <div class="gallery-slide-frame"><img src="action3.jpg" alt="הפקה" /></div>
+                </div>
+                <div class="gallery-slide">
+                    <div class="gallery-slide-frame"><img src="action4.jpg" alt="סטודיו" /></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════ PRESS / ISRAEL HAYOM -->
+        <section class="press-section" id="press-section">
+            <div class="press-inner">
+                <div class="press-eyebrow" data-scroll-reveal="fade-up">📰 כפי שנסקרנו</div>
+                <h2 class="press-headline" data-scroll-reveal="fade-up" data-delay="60">
+                    אמא אני <span>בעיתון!</span>
+                </h2>
+                <p class="press-subhead" data-scroll-reveal="fade-up" data-delay="100">
+                    לכתבה שלנו בישראל היום
+                </p>
+
+                <a href="https://www.israelhayom.co.il/you-may-find-interesting/article/19061971" target="_blank"
+                    rel="noopener" class="press-cta" id="press-article-link" data-scroll-reveal="fade-up"
+                    data-delay="140">
+                    📖 לכתבה לחץ
+                </a>
+
+                <div class="press-images" data-scroll-reveal="fade-up" data-delay="200">
+                    <div class="press-img-wrap">
+                        <img src="press1.jpg" alt="כתבה בישראל היום"
+                            onerror="this.parentElement.style.background='linear-gradient(135deg,#0a1628,#1a3a6e)';this.style.display='none';" />
+                    </div>
+                    <div class="press-img-wrap">
+                        <img src="press2.jpg" alt="כתבה בישראל היום"
+                            onerror="this.parentElement.style.background='linear-gradient(135deg,#0d1f3c,#1a4080)';this.style.display='none';" />
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════ FAQ -->
+        <section class="faq-section">
+            <div class="section-inner">
+                <div class="sec-tag" data-scroll-reveal="fade-up">❓ שאלות שאתם כנראה שואלים</div>
+                <h2 class="section-title" data-scroll-reveal="fade-up" data-delay="80">שאלות נפוצות – ענינו על הכל</h2>
+                <p class="sec-subtitle" data-scroll-reveal="fade-up" data-delay="120">אם יש לכם שאלה שלא ענינו עליה –
+                    כתבו לנו
+                </p>
+
+                <div class="faq-list" data-scroll-reveal="fade-up" data-delay="160">
+
+
+
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">
+                            <span>כמה זמן לוקחת ההדרכה?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-a">
+                            <p>ההדרכה קצרה ומרוכזת – מתוכננת לחוויה שאפשר לסיים ביום אחד. לא 40 שעות שתזנחו אחרי שיעור
+                                ראשון. אתם
+                                קובעים שעה וחצי ב-100% מסך, ובסוף היום הזה יש לכם תוכנית שיווק מלאה ביד.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">
+                            <span>אני לא טכנולוגי בכלל – זה מתאים לי?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-a">
+                            <p>בהחלט. ההדרכה נכתבה ל<strong>בעלי עסקים</strong>, לא למשווקים מקצועיים. לא צריך להכיר
+                                פיקסל פייסבוק. לא
+                                צריך לדעת מה זה A/B testing. אם אתם יכולים לצפות בוידאו ולמלא טבלת אקסל פשוטה – אתם
+                                יכולים ליישם מה
+                                שתלמדו.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">
+                            <span>מה ההבדל מהדרכות שיווק אחרות שראיתי?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-a">
+                            <p>רוב ההדרכות מלמדות אתכם "איך" – איך לכתוב פוסט, איך להריץ קמפיין, איך לעשות תוכן. ההוק
+                                לשיווק! מלמד
+                                אתכם "לאיפה" – לאיזה ערוץ בכלל כדאי ללכת, בהתאם לעסק שלכם ספציפית. זה הבדל ענק. ה"יודעים
+                                לאיפה" הם אלה
+                                שלא מבזבזים תקציב.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">
+                            <span>עסק קטן עם תקציב מינימלי – זה רלוונטי?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-a">
+                            <p>זה בדיוק בשבילכם. דווקא כל שמתקציב קטן, חשוב י<strong>כפליים</strong> לא לטעות. כשיש לכם
+                                תקציב מוגבל –
+                                אתם לא יכולים להרשות לעצמכם לנחש מה עובד. ההדרכה ינחה אתכם לאיפה לשים כל שקל כדי שיחזיר
+                                הכי הרבה.</p>
+                        </div>
+                    </div>
+
+
+
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">
+                            <span>מתי אני מקבל גישה לאחר הרכישה?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-a">
+                            <p>מיידית. ברגע שתסיימו את התשלום – תקבלו מייל עם לינק גישה. אין להמתין. אין לאשר ידנית. אין
+                                לפנות לשירות
+                                לקוחות. לוחצים, משלמים, מתחילים.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-q" onclick="toggleFaq(this)">
+                            <span>מה בדיוק הטמפלייט שאני מקבל?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-a">
+                            <p>טמפלייט תוכנית שיווק שנתית – מסמך מוכן שתורידו ותמלאו בזמן שאתם צופים בהדרכה. בסוף היום
+                                שלכם יש מפה
+                                שיווקית מלאה לשנה קדימה: קהל יעד, ערוצים שנבחרו, יעדים, תקציב חודשי, ותוכנית עבודה.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════════════════════════ BUY -->
+        <section class="buy-section" id="buy-section">
+            <div class="section-inner">
+
+                <!-- Pre-close — big centered pain statements -->
+                <div class="pain-statements-wrap preclose-loop" data-scroll-reveal="fade-up">
+
+                    <div class="pain-stmt pain-stmt--q">
+                        אז מה אתם מחליטים?
+                    </div>
+
+                    <div class="pain-stmt">
+                        אפשר לסגור את הדף הזה<br />
+                        <span class="pain-dim">ולחזור בדיוק לאותו המצב.</span><br />
+                        <span class="pain-dim">לנסות עוד פעם בלי כיוון ובלי תוצאות.</span>
+                    </div>
+
+                    <div class="pain-divider"></div>
+
+                    <div class="pain-stmt pain-stmt--verdict">
+                        או
+                    </div>
+
+                    <div class="pain-stmt">
+                        להקדיש <span class="cyan">שעה וחצי</span><br />
+                        לקבל מפה ברורה לגמרי<br />
+                        ולדעת סוף סוף באיזה <span class="cyan">דרכי שיווק</span><br />
+                        להשקיע את הכסף והזמן שלכם<br /><br />
+                        <strong>והכי חשוב! לבנות ולעבוד לפי <span class="cyan">תוכנית שיווק</span><br />מסודרת שמתאימה
+                            בול
+                            בשבילכם!</strong>
+                    </div>
+
+                </div>
+
+
+
+                <div class="buy-card" data-scroll-reveal="scale-up" data-delay="120">
+                    <div class="buy-badge">🔥 מחיר השקה בלעדי</div>
+                    <h2 class="buy-title">מוכנים לבנות תוכנית שיווק<br />שעובדת בשבילכם?</h2>
+                    <p class="buy-sub">הדרכה 1 קצרה וממוקדת!</p>
+
+                    <div class="value-stack">
+                        <div class="vs-item">
+                            <div class="vs-left"><span class="vs-icon">🎬</span>
+                                <div>
+                                    <div class="vs-name">הדרכת "ההוק לשיווק!" המלאה</div>
+                                    <div class="vs-desc">גישה מיידית | צפייה ללא הגבלה</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vs-item">
+                            <div class="vs-left"><span class="vs-icon">📄</span>
+                                <div>
+                                    <div class="vs-name">טמפלייט תוכנית שיווק שנתית</div>
+                                    <div class="vs-desc">מסמך מוכן למילוי מיידי – בחינם!</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="buy-price-wrap">
+                        <div class="buy-price-label">המחיר שלכם היום:</div>
+                        <div class="buy-price-main">290 ₪</div>
+                        <div class="buy-price-note">כולל מע"מ | גישה מיידית במייל</div>
+                    </div>
+
+                    <a href="https://mrng.to/UGCghPAQ6W" target="_blank" rel="noopener"
+                        class="cta-btn cta-btn--buy cta-pulse" id="main-buy-btn">
+                        🚀 לרכישה מיידית – 290 ₪
+                    </a>
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="site-footer">
+            <div class="footer-inner footer-inner--logo-only">
+                <img src="logo.png" alt="TV Production" class="logo-img logo-img--footer" />
+            </div>
+        </footer>
+
+    </div><!-- /vsl-phase -->
+
+    <script src="app.js"></script>
+    <script>
+        /* ── Photo Gallery Navigator ──────────────────── */
+        (function () {
+            var track = document.getElementById('galleryTrack');
+            var prev = document.getElementById('galleryPrev');
+            var next = document.getElementById('galleryNext');
+            if (!track || !prev || !next) return;
+            var slides = track.querySelectorAll('.gallery-slide');
+            var total = slides.length;
+            var idx = 0;
+            function goTo(n) {
+                var maxIdx = total - 1;
+                if (n > maxIdx) idx = 0;
+                else if (n < 0) idx = maxIdx;
+                else idx = n;
+                var slideW = slides[0].offsetWidth;
+                track.style.transform = 'translateX(-' + (idx * slideW) + 'px)';
+            }
+            prev.addEventListener('click', function () { goTo(idx + 1); });
+            next.addEventListener('click', function () { goTo(idx - 1); });
+        })();
+    </script>
+
+    <script>
+        /* ── Video Testimonials Carousel ───────────────── */
+        (function () {
+            var track = document.getElementById('vcTrack');
+            var btnPrev = document.getElementById('vcPrev');
+            var btnNext = document.getElementById('vcNext');
+            var dotsEl = document.querySelectorAll('.video-dot');
+            if (!track) return;
+
+            var slides = track.querySelectorAll('.video-slide');
+            var total = slides.length;
+            var current = 0;
+
+            function goTo(n) {
+                if (n >= total) n = 0;
+                if (n < 0) n = total - 1;
+                current = n;
+                var w = slides[0].offsetWidth;
+                track.style.transform = 'translateX(-' + (current * w) + 'px)';
+                dotsEl.forEach(function (d, i) {
+                    d.classList.toggle('active', i === current);
+                });
+            }
+
+            if (btnPrev) btnPrev.addEventListener('click', function () { goTo(current + 1); });
+            if (btnNext) btnNext.addEventListener('click', function () { goTo(current - 1); });
+            dotsEl.forEach(function (d) {
+                d.addEventListener('click', function () { goTo(parseInt(d.dataset.idx)); });
+            });
+
+            /* Touch/swipe support */
+            var startX = 0;
+            track.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, { passive: true });
+            track.addEventListener('touchend', function (e) {
+                var dx = e.changedTouches[0].clientX - startX;
+                if (Math.abs(dx) > 40) goTo(dx > 0 ? current - 1 : current + 1);
+            }, { passive: true });
+
+            /* Recalc on resize */
+            window.addEventListener('resize', function () { goTo(current); });
+        })();
+    </script>
+
+
+</body>
+
+</html>
