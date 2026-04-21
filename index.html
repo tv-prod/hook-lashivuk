@@ -678,14 +678,10 @@
                 <div class="vsl-video-wrap" data-scroll-reveal="scale-up" data-delay="260">
                     <div class="vsl-video-inner">
                         <div class="vsl-glow" style="z-index:-1;"></div>
-                        <iframe
-                            id="vsl-hero-iframe"
+                        <iframe id="vsl-hero-iframe"
                             data-src="https://player.vimeo.com/video/1184535257?autoplay=1&autopause=0&badge=0&player_id=vsl-hero-iframe&app_id=58479"
-                            allow="autoplay; fullscreen; picture-in-picture"
-                            allowfullscreen
-                            title="ההוק לשיווק – הדרכה"
-                            style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.25);width:100%;height:100%;border:none;border-radius:inherit;"
-                        ></iframe>
+                            allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="ההוק לשיווק – הדרכה"
+                            style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.25);width:100%;height:100%;border:none;border-radius:inherit;"></iframe>
                     </div>
                 </div>
 
@@ -1425,9 +1421,39 @@
 
 
                 <div class="buy-card" data-scroll-reveal="scale-up" data-delay="120">
-                    <div class="buy-badge">🔥 מחיר השקה בלעדי</div>
+
+                    <!-- FOMO: social proof micro-bar -->
+                    <div class="fomo-social-bar">
+                        <span class="fomo-dot"></span>
+                        <span class="fomo-buyers"><span id="buyersCount">17</span> איש רכשו היום</span>
+                        <span class="fomo-sep">·</span>
+                        <span class="fomo-live">🔴 חי</span>
+                    </div>
+
+                    <div class="buy-badge">🔥 מחיר השקה בלעדי – לזמן מוגבל!</div>
                     <h2 class="buy-title">מוכנים לבנות תוכנית שיווק<br />שעובדת בשבילכם?</h2>
                     <p class="buy-sub">הדרכה 1 קצרה וממוקדת!</p>
+
+                    <!-- FOMO: countdown -->
+                    <div class="fomo-timer-wrap">
+                        <div class="fomo-timer-label">⏳ ההנחה פגה בעוד:</div>
+                        <div class="fomo-countdown">
+                            <div class="fomo-cd-block">
+                                <span class="fomo-cd-num" id="fomo-h">01</span>
+                                <span class="fomo-cd-lbl">שעות</span>
+                            </div>
+                            <span class="fomo-cd-sep">:</span>
+                            <div class="fomo-cd-block">
+                                <span class="fomo-cd-num" id="fomo-m">47</span>
+                                <span class="fomo-cd-lbl">דקות</span>
+                            </div>
+                            <span class="fomo-cd-sep">:</span>
+                            <div class="fomo-cd-block">
+                                <span class="fomo-cd-num" id="fomo-s">33</span>
+                                <span class="fomo-cd-lbl">שניות</span>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="value-stack">
                         <div class="vs-item">
@@ -1448,10 +1474,15 @@
                         </div>
                     </div>
 
+                    <!-- PRICE -->
+                    <div class="buy-price-wrap fomo-price-wrap">
+                        <div class="fomo-price-tag">המחיר המלא</div>
+                        <div class="buy-price-row">
+                            <div class="buy-price-original fomo-original">360 ₪</div>
+                            <div class="fomo-arrow">→</div>
+                            <div class="buy-price-main">290 ₪</div>
+                        </div>
 
-                    <div class="buy-price-wrap">
-                        <div class="buy-price-label">המחיר שלכם היום:</div>
-                        <div class="buy-price-main">290 ₪</div>
                         <div class="buy-price-note">כולל מע"מ | גישה מיידית במייל</div>
                     </div>
 
@@ -1459,6 +1490,7 @@
                         class="cta-btn cta-btn--buy cta-pulse" id="main-buy-btn">
                         🚀 לרכישה מיידית – 290 ₪
                     </a>
+
 
 
                 </div>
@@ -1540,7 +1572,51 @@
             window.addEventListener('resize', function () { goTo(current); });
         })();
     </script>
+    <script>
+        /* ── FOMO Countdown Timer ───────────────────────── */
+        (function () {
+            var DURATION = 107 * 60; // 1h 47m in seconds
+            var KEY = 'fomo_end';
+            var end = parseInt(sessionStorage.getItem(KEY), 10);
+            if (!end || end < Date.now()) {
+                end = Date.now() + DURATION * 1000;
+                sessionStorage.setItem(KEY, end);
+            }
+            var hEl = document.getElementById('fomo-h');
+            var mEl = document.getElementById('fomo-m');
+            var sEl = document.getElementById('fomo-s');
+            if (!hEl || !mEl || !sEl) return;
 
+            function pad(n) { return String(n).padStart(2, '0'); }
+            function tick() {
+                var rem = Math.max(0, Math.floor((end - Date.now()) / 1000));
+                var h = Math.floor(rem / 3600);
+                var m = Math.floor((rem % 3600) / 60);
+                var s = rem % 60;
+                hEl.textContent = pad(h);
+                mEl.textContent = pad(m);
+                sEl.textContent = pad(s);
+                if (rem > 0) setTimeout(tick, 1000);
+            }
+            tick();
+        })();
+
+        /* ── FOMO Social Proof Counter ──────────────────── */
+        (function () {
+            var el = document.getElementById('buyersCount');
+            if (!el) return;
+            var count = parseInt(el.textContent, 10) || 17;
+            function maybeTick() {
+                var delay = 25000 + Math.random() * 55000; // 25–80s
+                setTimeout(function () {
+                    count++;
+                    el.textContent = count;
+                    maybeTick();
+                }, delay);
+            }
+            maybeTick();
+        })();
+    </script>
 
 </body>
 
