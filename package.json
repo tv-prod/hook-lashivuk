@@ -1,0 +1,21 @@
+{
+  "name": "hook-lashivuk",
+  "version": "1.0.0",
+  "description": "TV Production landing page with Vercel Web Analytics",
+  "type": "module",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static site - no build required'",
+    "lint": "echo 'No linter configured'"
+  },
+  "keywords": [
+    "landing-page",
+    "analytics"
+  ],
+  "author": "TV Production",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
